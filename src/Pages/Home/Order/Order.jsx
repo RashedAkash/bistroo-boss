@@ -7,6 +7,7 @@ import img2 from '../../../assets/home/slide2.jpg'
 import img3 from '../../../assets/home/slide3.jpg'
 import img4 from '../../../assets/home/slide4.jpg'
 import img5 from '../../../assets/home/slide5.jpg'
+import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 const Order = () => {
    var settings = {
@@ -45,7 +46,7 @@ const Order = () => {
     };
   return (
     <div className=" py-16">
-       <h2> Responsive </h2>
+       <SectionTitle subHeading='---From 11:00am to 10:00pm---' heading='ORDER ONLINE'/>
         <Slider {...settings}>
           <div>
           <img className=" w-full" src={img1} alt="" />
