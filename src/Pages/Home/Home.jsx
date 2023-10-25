@@ -3,6 +3,7 @@ import Banner from './Banner/Banner';
 import Order from './Order/Order';
 import BistroBoss from './BistroBoss/BistroBoss';
 import Menu from './Menu/Menu';
+import Call from './Call/Call';
 
 const Home = () => {
   return (
@@ -10,6 +11,7 @@ const Home = () => {
       <Banner />
       <Order />
       <BistroBoss />
+      <Call />
      <Menu />
     </div>
   );

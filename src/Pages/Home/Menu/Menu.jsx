@@ -1,13 +1,14 @@
 import img from '../../../assets/menu/pizza-bg.jpg';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
+import './Menu.css'
 
 const Menu = () => {
   return (
-    <div className='bg-img my-16 bg-fixed '>
-       <div className='bg-black bg-opacity-50 py-10 text-white '>
+    <div className='bg-imgs  bg-fixed '>
+       <div className='bg-black bg-opacity-60 py-10 text-white '>
         <SectionTitle  heading='FROM OUR MENU' subHeading='---Check it out---'/>
       </div>
-      <div className="hero h-full pb-16 bg-black bg-opacity-50 ">
+      <div className="hero h-full pb-16 bg-black bg-opacity-60 ">
        
   <div className="hero-content flex-col lg:flex-row">
           <div className=' w-1/2'>
