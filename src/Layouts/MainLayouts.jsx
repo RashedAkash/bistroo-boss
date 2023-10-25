@@ -6,7 +6,9 @@ import Footer from '../Shared/Footer/Footer';
 const MainLayouts = () => {
   return (
     <div>
-      <Navbar />
+      <div className=' '>
+        <Navbar />
+      </div>
       <Outlet />
       <Footer />
     </div>

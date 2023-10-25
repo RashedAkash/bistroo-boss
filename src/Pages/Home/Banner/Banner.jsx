@@ -9,12 +9,12 @@ import slide6 from '../../../assets/home/06.png'
 
 const Banner = () => {
   return (
-    <div>
+    <div >
 
      
       <Carousel >
                 <div>
-                    <img className="w-full" src={slide1} />                    
+                    <img  src={slide1} />                    
                 </div>
                 <div>
                     <img src={slide2} />                    

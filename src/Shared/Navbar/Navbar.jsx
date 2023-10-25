@@ -4,8 +4,8 @@ import logo from '../../assets/logo.png'
 
 const Navbar = () => {
   return (
-    <div>
-      <div className="navbar bg-base-100">
+    <div className='  '>
+      <div className="navbar ">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -32,7 +32,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Login</a>
+    <a className="btn btn-secondary z-20">Login</a>
   </div>
 </div>
     </div>
