@@ -6,6 +6,7 @@ import Contact from "../Pages/Contact/Contact";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import Shop from "../Pages/Shop/Shop";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import MyMenu from "../Pages/MyMenu/MyMenu";
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: '/cart',
         element: <Cart />
+      },
+      {
+        path: '/myMenu',
+        element: <MyMenu />
       },
     ]
   }
