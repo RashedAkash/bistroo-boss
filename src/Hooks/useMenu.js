@@ -10,7 +10,7 @@ const useMenus = () => {
       })
   }, []);
 
-  return {menus};
+  return [menus];
 }
 
 export default useMenus;
