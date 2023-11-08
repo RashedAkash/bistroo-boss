@@ -1,18 +1,20 @@
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Tab, Tabs, TabList, TabPanel, } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import useMenus from '../../Hooks/useMenu';
 import FoodCard from './FoodCard';
+import { useState } from 'react';
 
 const Shop = () => {
   const [menus] = useMenus()
+   const [tabIndex, setTabIndex] = useState(0);
   
   const dessertsItem = menus.filter(menu => menu.category === 'dessert');
   const pizzaItem = menus.filter(menu => menu.category === 'pizza');
   const saladsItem = menus.filter(menu => menu.category === 'salad');
   const soupItem = menus.filter(menu => menu.category === 'soup');
   return (
-    <div className='py-10'>
-     <Tabs>
+    <div  className='py-10'>
+     <Tabs  selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
     <TabList>
       <Tab>SALAD</Tab>
       <Tab>PIZZA</Tab>

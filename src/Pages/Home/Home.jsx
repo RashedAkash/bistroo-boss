@@ -5,6 +5,7 @@ import BistroBoss from './BistroBoss/BistroBoss';
 import Menu from './Menu/Menu';
 import Call from './Call/Call';
 import Chef from './Chef/Chef';
+import Testimonial from './Testimonial/Testimonial';
 
 const Home = () => {
   return (
@@ -14,7 +15,9 @@ const Home = () => {
       <BistroBoss />
       <Call />
       <Chef />
-     <Menu />
+      <Menu />
+      <Testimonial />
+      
     </div>
   );
 };

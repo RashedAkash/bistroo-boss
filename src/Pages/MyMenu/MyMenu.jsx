@@ -1,4 +1,4 @@
-
+import {  NavLink } from 'react-router-dom';
 import useMenus from '../../Hooks/useMenu';
 import Cover from '../../components/SectionTitle/Cover/Cover';
 import menuImg from '../../assets/menu/banner3.jpg'
@@ -11,7 +11,7 @@ import SectionTitle from '../../components/SectionTitle/SectionTitle';
 
 const MyMenu = () => {
   const [menus] = useMenus();
-  
+ 
   const offerItem = menus.filter(menu => menu.category === 'offered');
   const dessertsItem = menus.filter(menu => menu.category === 'dessert');
   const pizzaItem = menus.filter(menu => menu.category === 'pizza');
@@ -34,7 +34,10 @@ const MyMenu = () => {
            {
           offerItem.map(item => <MenuItem key={item._id} item={item}/>)
         }
-       </div>
+        </div>
+        <NavLink >
+        <button className="btn btn-outline btn-secondary border-0 border-b-2 mb-5">Order Now</button>
+        </NavLink>
       </div>
 
 
@@ -45,8 +48,10 @@ const MyMenu = () => {
           
            {
           dessertsItem.map(item => <MenuItem key={item._id} item={item}/>)
-        }
-       </div>
+          }
+         
+        </div>
+         <button className="btn btn-outline btn-secondary border-0 border-b-2 mb-5">Order Now</button>
       </div>
       
       {/* pizzaItem */}
@@ -56,8 +61,10 @@ const MyMenu = () => {
           
            {
           pizzaItem.map(item => <MenuItem key={item._id} item={item}/>)
-        }
-       </div>
+          }
+           
+        </div>
+        <button className="btn btn-outline btn-secondary border-0 border-b-2 mb-5">Order Now</button>
       </div>
       {/* saladsItem */}
        <div>
@@ -66,8 +73,10 @@ const MyMenu = () => {
           
            {
           saladsItem.map(item => <MenuItem key={item._id} item={item}/>)
-        }
-       </div>
+          }
+           
+        </div>
+        <button className="btn btn-outline btn-secondary border-0 border-b-2 mb-5">Order Now</button>
       </div>
       {/* soupsItem */}
        <div>
@@ -76,8 +85,10 @@ const MyMenu = () => {
           
            {
           soupItem.map(item => <MenuItem key={item._id} item={item}/>)
-        }
-       </div>
+          }
+          
+        </div>
+         <button className="btn btn-outline btn-secondary border-0 border-b-2 mb-5">Order Now</button>
       </div>
     </div>
 

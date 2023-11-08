@@ -11,7 +11,8 @@ const MenuItem = ({ item }) => {
           <h3 className=' text-xl'>{name}  ----------</h3>
           <h4 className=' text-[#BB8506] text-xl'>${price }</h4>
         </div>
-        <p className=' text-start'>{recipe }</p>
+        <p className=' text-start'>{recipe}</p>
+        
       </div>
     </div>
   );

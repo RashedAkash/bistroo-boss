@@ -4,11 +4,14 @@ import App from './App.jsx'
 import './index.css'
 import {RouterProvider} from 'react-router-dom'
 import { router } from './Router/Router.jsx'
+import Context from './Context/Context.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <div className=' max-w-5xl mx-auto'>
+    <Context>
+      <div className=' max-w-5xl mx-auto'>
       <RouterProvider router={router} ></RouterProvider>
   </div>
+    </Context>
   </React.StrictMode>,
 )
