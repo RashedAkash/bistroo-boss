@@ -2,6 +2,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../../assets/logo.png'
 import useAuth from '../../Hooks/useAuth';
+import Carts from '../../components/Carts/Carts';
 
 
 const Navbar = () => {
@@ -30,7 +31,7 @@ const Navbar = () => {
         <li><NavLink to='/contact'>Contact</NavLink></li>
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
         <li><NavLink to='/shop'>Shop</NavLink></li>
-        <li><NavLink to='/cart'><FaShoppingCart /></NavLink></li>
+        <li><Link to='/cart'><Carts /></Link></li>
         
       </ul>
     </div>
@@ -43,7 +44,7 @@ const Navbar = () => {
         <li><NavLink to='/contact'>Contact</NavLink></li>
         <li><NavLink to='/dashboard'>Dashboard</NavLink></li>
         <li><NavLink to='/shop'>Shop</NavLink></li>
-        <li><NavLink to='/cart'><FaShoppingCart /></NavLink></li>
+        <li><Link to='/cart'><Carts /></Link></li>
     </ul>
   </div>
   <div className="navbar-end">

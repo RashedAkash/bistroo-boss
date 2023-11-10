@@ -9,6 +9,13 @@ import ErrorPage from "../Pages/Error/ErrorPage";
 import MyMenu from "../Pages/MyMenu/MyMenu";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup/Signup";
+import DashboardLayouts from "../Layouts/DashboardLayouts";
+import UserHome from "../dashboardcomponent/UserHome/UserHome";
+import Reservation from "../dashboardcomponent/Reservation/Reservation";
+import PaymentHistory from "../dashboardcomponent/PaymentHistory/PaymentHistory";
+import MyCart from "../dashboardcomponent/MyCart/MyCart";
+import AddReview from "../dashboardcomponent/AddReview/AddReview";
+import Mybooking from "../dashboardcomponent/Mybooking/Mybooking";
 
 export const router = createBrowserRouter([
   {
@@ -24,10 +31,7 @@ export const router = createBrowserRouter([
         path: '/shop',
         element: <Shop />
       },
-      {
-        path: '/dashboard',
-        element: <Dashboard />
-      },
+      
       {
         path: '/contact',
         element: <Contact />
@@ -49,5 +53,35 @@ export const router = createBrowserRouter([
         element: <Signup />
       },
     ]
-  }
+  },
+  {
+        path: '/dashboard',
+    element: <DashboardLayouts />,
+    children: [
+      {
+        path: 'userHome',
+        element:<UserHome />
+          },
+      {
+        path: 'reservation',
+        element:<Reservation />
+          },
+      {
+        path: 'payment',
+        element:<PaymentHistory />
+          },
+      {
+        path: 'myCart',
+        element:<MyCart />
+          },
+      {
+        path: 'addReview',
+        element:<AddReview />
+          },
+      {
+        path: 'myBooking',
+        element:<Mybooking />
+          },
+        ]
+      },
 ])

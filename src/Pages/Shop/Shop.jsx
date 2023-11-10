@@ -5,6 +5,7 @@ import FoodCard from './FoodCard';
 import { useState } from 'react';
 
 const Shop = () => {
+     
   const [menus] = useMenus()
    const [tabIndex, setTabIndex] = useState(0);
   
@@ -13,8 +14,10 @@ const Shop = () => {
   const saladsItem = menus.filter(menu => menu.category === 'salad');
   const soupItem = menus.filter(menu => menu.category === 'soup');
   return (
-    <div  className='py-10'>
-     <Tabs  selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+        <div className='py-10'>
+             
+              <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
+                    
     <TabList>
       <Tab>SALAD</Tab>
       <Tab>PIZZA</Tab>
