@@ -1,17 +1,16 @@
 import React from 'react';
 import { useQuery } from 'react-query';
 import useAuth from './useAuth';
+import useAxiosSecure from './useAxiosSecure';
 
 const useCarts = () => {
-  const {user} = useAuth()
-  const { isLoading, isError,  data, refetch, error }= useQuery({
+  const { user } = useAuth()
+  const axiosSecure = useAxiosSecure();
+  const   {data,refetch}  = useQuery({
   queryKey: ['carts', user?.email],
   queryFn: async () => {
-    const response = await fetch(`http://localhost:5000/carts?email=${user.email} `)
-    if (!response.ok) {
-      throw new Error('Network response was not ok')
-    }
-    return response.json()
+    const response = await axiosSecure.get(`/carts?email=${user?.email}`)
+    return response.data;
   },
 })
 

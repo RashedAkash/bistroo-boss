@@ -16,6 +16,8 @@ import PaymentHistory from "../dashboardcomponent/PaymentHistory/PaymentHistory"
 import MyCart from "../dashboardcomponent/MyCart/MyCart";
 import AddReview from "../dashboardcomponent/AddReview/AddReview";
 import Mybooking from "../dashboardcomponent/Mybooking/Mybooking";
+import AllUsers from "../dashboardcomponent/AllUsers/AllUsers";
+import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +31,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '/shop',
-        element: <Shop />
+        element:<PrivateRoute> <Shop /></PrivateRoute>
       },
       
       {
@@ -38,11 +40,11 @@ export const router = createBrowserRouter([
       },
       {
         path: '/cart',
-        element: <Cart />
+        element: <PrivateRoute><Cart /></PrivateRoute>
       },
       {
         path: '/myMenu',
-        element: <MyMenu />
+        element: <PrivateRoute><MyMenu /></PrivateRoute>
       },
       {
         path: '/login',
@@ -58,6 +60,11 @@ export const router = createBrowserRouter([
         path: '/dashboard',
     element: <DashboardLayouts />,
     children: [
+       {
+        path: '/dashboard',
+        element:<MyCart />
+          },
+    
       {
         path: 'userHome',
         element:<UserHome />
@@ -70,17 +77,18 @@ export const router = createBrowserRouter([
         path: 'payment',
         element:<PaymentHistory />
           },
-      {
-        path: 'myCart',
-        element:<MyCart />
-          },
+     
       {
         path: 'addReview',
         element:<AddReview />
           },
       {
         path: 'myBooking',
-        element:<Mybooking />
+        element:<PrivateRoute><Mybooking /></PrivateRoute>
+          },
+      {
+        path: 'allUsers',
+        element:<PrivateRoute><AllUsers /></PrivateRoute>
           },
         ]
       },

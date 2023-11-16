@@ -3,6 +3,7 @@ import useCarts from '../../Hooks/useCarts';
 import SectionTitle from '../../components/SectionTitle/SectionTitle';
 import Swal from 'sweetalert2';
 import axios from 'axios';
+import { FaTrashAlt } from 'react-icons/fa';
 
 
 
@@ -89,7 +90,7 @@ axios.delete(`http://localhost:5000/carts/${id}`)
         </td>
                 <td>{ cart.price}</td>
         <th>
-          <button onClick={()=>handleDelete(cart._id)} className=' btn bg-red-600 text-white'>X</button>
+          <button onClick={()=>handleDelete(cart._id)} className=' btn bg-red-600 text-white'><FaTrashAlt/></button>
         </th>
       </tr>)
       }

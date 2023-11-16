@@ -1,18 +1,20 @@
-
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import { useForm} from "react-hook-form"
 
 import Swal from 'sweetalert2'
 
 const Login = () => {
+	const navigate = useNavigate();
+  let location = useLocation();
+	let from = location.state?.from?.pathname || "/";
 	
 	const { googleSignIn,login } = useAuth();
 	const {
 		register,
 		handleSubmit,
 		
-		 formState: { errors },
+		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => {
 		console.log(data)
@@ -26,7 +28,8 @@ const Login = () => {
   title: "Congratulation",
   text: "You are sign up successfully",
   
-});
+				});
+				navigate(from, { replace: true });
 			})
 			.catch(err => {
 			console.log(err);
@@ -36,9 +39,26 @@ const Login = () => {
 	//google
 		const handleGoogleSignIn = () => {
 		googleSignIn()
-			.then(res => {
-			console.log(res.user);
-			})
+			.then((res) => {
+                        const saveUser = { name: res.user.displayName, email: res.user.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                               
+                                 
+                                 navigate(from, { replace: true });
+                                
+                            })
+
+
+
+                    })
 			.catch(err => {
 			console.log(err.message);
 		})

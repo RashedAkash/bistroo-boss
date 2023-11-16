@@ -3,11 +3,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useForm} from "react-hook-form"
 import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2'
+import axios from 'axios';
+import useAxiosPublic from '../../Hooks/useAxiosPublic';
 
 
 const Signup = () => {
 	const { googleSignIn, signUp, updateUser } = useAuth();
-	const navigate = useNavigate()
+	const navigate = useNavigate();
+	const axiosPublic = useAxiosPublic();
 	const {
 		register,
 		handleSubmit,
@@ -21,19 +24,30 @@ const Signup = () => {
 		signUp(data.email, data.password)
             .then(result => {
                 const loggedUser = result.user;
-                console.log(loggedUser);
+							console.log(loggedUser);
+						
+							
                 updateUser(data.name, data.photo)
-                    .then(() => {
-                        console.log('user profile info updated')
-                        reset();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'User created successfully.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        navigate('/');
+                     .then(() => {
+                        const saveUser = { name: data.name, email: data.email }
+                       
+											axiosPublic.post('/users',saveUser)
+														.then(function (response) {
+    if (response.data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                    navigate('/');
+                                }
+  })
+                            
+
+
 
                     })
                     .catch(error => console.log(error))
@@ -43,9 +57,26 @@ const Signup = () => {
 	//google
 	const handleGoogleSignIn = () => {
 		googleSignIn()
-			.then(res => {
-			console.log(res.user);
-			})
+			.then((res) => {
+                        const saveUser = { name: res.user.displayName, email: res.user.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                   
+                                    navigate('/');
+                                }
+                            })
+
+
+
+                    })
 			.catch(err => {
 			console.log(err.message);
 		})

@@ -3,20 +3,22 @@ import useAuth from '../../Hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Navigate, useNavigate } from 'react-router-dom';
 import useCarts from '../../Hooks/useCarts';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
 
 const FoodCard = ({ item }) => {
   const { user } = useAuth();
   const {refetch} = useCarts()
   const { name, recipe, price, image } = item;
   const navigate = useNavigate();
+  const axiosSecure = useAxiosSecure();
 
   const handleAddToCart = () => {
     if (user) {
-      axios.post('http://localhost:5000/carts', {
+      axiosSecure.post('/carts', {
     name,price,image,email:user.email
   })
   .then(function (response) {
-    console.log(response);
+    
     refetch()
     	Swal.fire({
   icon: "success",
